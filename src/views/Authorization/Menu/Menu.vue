@@ -111,12 +111,12 @@ const tableColumns = reactive<TableColumn[]>([
         return (
           <>
             <BaseButton type="primary" onClick={() => action(row, 'edit')}>
-              {t('exampleDemo.edit')}
+              {t('common.edit')}
             </BaseButton>
             <BaseButton type="success" onClick={() => action(row, 'detail')}>
-              {t('exampleDemo.detail')}
+              {t('common.detail')}
             </BaseButton>
-            <BaseButton type="danger">{t('exampleDemo.del')}</BaseButton>
+            <BaseButton type="danger">{t('common.del')}</BaseButton>
           </>
         )
       }
@@ -149,14 +149,14 @@ const writeRef = ref<ComponentRef<typeof Write>>()
 const saveLoading = ref(false)
 
 const action = (row: any, type: string) => {
-  dialogTitle.value = t(type === 'edit' ? 'exampleDemo.edit' : 'exampleDemo.detail')
+  dialogTitle.value = t(type === 'edit' ? 'common.edit' : 'common.detail')
   actionType.value = type
   currentRow.value = row
   dialogVisible.value = true
 }
 
 const AddAction = () => {
-  dialogTitle.value = t('exampleDemo.add')
+  dialogTitle.value = t('common.add')
   currentRow.value = undefined
   dialogVisible.value = true
   actionType.value = ''
@@ -180,7 +180,7 @@ const save = async () => {
   <ContentWrap>
     <Search :schema="searchSchema" @reset="setSearchParams" @search="setSearchParams" />
     <div class="mb-10px">
-      <BaseButton type="primary" @click="AddAction">{{ t('exampleDemo.add') }}</BaseButton>
+      <BaseButton type="primary" @click="AddAction">{{ t('common.add') }}</BaseButton>
     </div>
     <Table
       :columns="tableColumns"
@@ -204,9 +204,9 @@ const save = async () => {
         :loading="saveLoading"
         @click="save"
       >
-        {{ t('exampleDemo.save') }}
+        {{ t('common.save') }}
       </BaseButton>
-      <BaseButton @click="dialogVisible = false">{{ t('dialogDemo.close') }}</BaseButton>
+      <BaseButton @click="dialogVisible = false">{{ t('common.close') }}</BaseButton>
     </template>
   </Dialog>
 </template>

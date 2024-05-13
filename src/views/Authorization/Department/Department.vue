@@ -213,13 +213,13 @@ const crudSchemas = reactive<CrudSchema[]>([
           return (
             <>
               <BaseButton type="primary" onClick={() => action(data.row, 'edit')}>
-                {t('exampleDemo.edit')}
+                {t('common.edit')}
               </BaseButton>
               <BaseButton type="success" onClick={() => action(data.row, 'detail')}>
-                {t('exampleDemo.detail')}
+                {t('common.detail')}
               </BaseButton>
               <BaseButton type="danger" onClick={() => delData(data.row)}>
-                {t('exampleDemo.del')}
+                {t('common.del')}
               </BaseButton>
             </>
           )
@@ -239,7 +239,7 @@ const currentRow = ref<DepartmentItem | null>(null)
 const actionType = ref('')
 
 const AddAction = () => {
-  dialogTitle.value = t('exampleDemo.add')
+  dialogTitle.value = t('common.add')
   currentRow.value = null
   dialogVisible.value = true
   actionType.value = ''
@@ -259,7 +259,7 @@ const delData = async (row: DepartmentItem | null) => {
 }
 
 const action = (row: DepartmentItem, type: string) => {
-  dialogTitle.value = t(type === 'edit' ? 'exampleDemo.edit' : 'exampleDemo.detail')
+  dialogTitle.value = t(type === 'edit' ? 'common.edit' : 'common.detail')
   actionType.value = type
   currentRow.value = row
   dialogVisible.value = true
@@ -293,9 +293,9 @@ const save = async () => {
     <Search :schema="allSchemas.searchSchema" @search="setSearchParams" @reset="setSearchParams" />
 
     <div class="mb-10px">
-      <BaseButton type="primary" @click="AddAction">{{ t('exampleDemo.add') }}</BaseButton>
+      <BaseButton type="primary" @click="AddAction">{{ t('common.add') }}</BaseButton>
       <BaseButton :loading="delLoading" type="danger" @click="delData(null)">
-        {{ t('exampleDemo.del') }}
+        {{ t('common.del') }}
       </BaseButton>
     </div>
 
@@ -333,9 +333,9 @@ const save = async () => {
         :loading="saveLoading"
         @click="save"
       >
-        {{ t('exampleDemo.save') }}
+        {{ t('common.save') }}
       </BaseButton>
-      <BaseButton @click="dialogVisible = false">{{ t('dialogDemo.close') }}</BaseButton>
+      <BaseButton @click="dialogVisible = false">{{ t('common.close') }}</BaseButton>
     </template>
   </Dialog>
 </template>
